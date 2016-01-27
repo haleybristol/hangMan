@@ -1,39 +1,37 @@
 // function hangMan (words, letters, fails, discards)
+function hangMan() {
+  this.words = [];
+  this.lettersGuessed = [];
+  this.score = 0;
+  this.discards = [];
+}
 
-
-
-function Random (fruit) {
-  var fruit = ["apple"] //"banana", "berry", "orange"];
-  var word = fruit[Math.floor(Math.random() * fruit.length)];
-  return word;
-};
-
-function Replace (word) {
-  var newWord = word.replace(/\w/g, " _");
-  return newWord;
-};
-
-function splitWord (word) {
-  var splitWord = word.split("");
-  return splitWord;
-};
-
-function splitBlank (newWord) {
-  var splitBlank = newWord.split("");
-  return splitBlank;
-};
-
-function Index (splitWord) {
-  var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z"];
-  var index = splitWord.indexOf(letters);
-  return index;
-};
-
-function Discard (letters, index) {
-  var discards = [];
-  if (index === -1) {
-    discards.push(letters);
-  } else {
-    return index;
+  hangMan.prototype.Random = function() {
+    var word = this.words[Math.floor(Math.random() * this.words.length)];
+    return word;
   }
-};
+
+  hangMan.prototype.Replace = function(word) {
+  var blankWord = word.replace(/\w/g, " _");
+  return blankWord;
+}
+
+  hangMan.prototype.splitWord = function(word) {
+    var splitWord = word.split("");
+    return splitWord;
+  }
+
+  hangMan.prototype.splitBlank = function(blankWord) {
+  var splitBlank = blankWord.split("");
+  return splitBlank;
+}
+
+hangMan.prototype.Index = function(splitWord) {
+  var index = splitWord.indexOf(this.lettersGuessed);
+  if (index !== -1) {
+    return index;
+  } else {
+    var discard = this.discards.push(this.lettersGuessed);
+    return discard;
+  }
+}
