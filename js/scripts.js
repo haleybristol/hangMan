@@ -59,4 +59,19 @@ function HangMan() {
 
 $(document).ready (function(){
 
-})
+  $("#wordplace").html($(this.word));
+
+
+  $(".letters").click(function(event) {
+    var value = $(this).val();
+    console.log(value);
+  });
+
+  // $("form#letter").click(function(event) {
+  //   var clickedLetter = ($(this).val());
+  //   HangMan.replace(clickedLetter);
+
+
+
+  // });
+});
