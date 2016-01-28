@@ -57,9 +57,6 @@ function HangMan() {
       }
     }
 
-    //   if (index === -1) {
-    //   var score = this.score + 1;
-    //   return score;
-    // } else {
-    // return index;
-    // }
+$(document).ready (function(){
+
+})
