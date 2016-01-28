@@ -1,37 +1,43 @@
-// function hangMan (words, letters, fails, discards)
-function hangMan() {
-  this.words = [];
-  this.lettersGuessed = [];
-  this.score = 0;
-  this.discards = [];
-}
 
-  hangMan.prototype.Random = function() {
-    var word = this.words[Math.floor(Math.random() * this.words.length)];
-    return word;
+  function hangMan() {
+    this.word = this.Random();
+    this.lettersGuessed = [];
+    this.score = 0;
+    this.discards = [];
   }
 
-  hangMan.prototype.Replace = function(word) {
-  var blankWord = word.replace(/\w/g, " _");
-  return blankWord;
-}
+    hangMan.prototype.Random = function() {
+      var array = ["porpoise", "manatee", "manta ray", "steve irwin" ];
+      var word = array[Math.floor(Math.random() * array.length)];
+      return word;
+    }
 
-  hangMan.prototype.splitWord = function(word) {
-    var splitWord = word.split("");
-    return splitWord;
+    hangMan.prototype.Replace = function(word) {
+    var blankWord = word.replace(/\w/g, " _");
+    return blankWord;
   }
 
-  hangMan.prototype.splitBlank = function(blankWord) {
-  var splitBlank = blankWord.split("");
-  return splitBlank;
-}
+    hangMan.prototype.splitWord = function(word) {
+      var splitWord = word.split("");
+      return splitWord;
+    }
 
-hangMan.prototype.Index = function(splitWord) {
-  var index = splitWord.indexOf(this.lettersGuessed);
-  if (index !== -1) {
-    return index;
-  } else {
-    var discard = this.discards.push(this.lettersGuessed);
-    return discard;
+    hangMan.prototype.splitBlank = function(blankWord) {
+    var splitBlank = blankWord.split("");
+    return splitBlank;
   }
-}
+
+  hangMan.prototype.Index = function(guess) {
+    for (var i = 0; i < splitWord.length; i++) {
+      if (splitWord[i] === guess) {
+      return splitWord.charAt(i);
+    }
+
+    //   if (index === -1) {
+    //   var score = this.score + 1;
+    //   return score;
+    // } else {
+    // return index;
+    // }
+    }
+  }
