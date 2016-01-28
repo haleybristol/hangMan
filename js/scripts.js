@@ -1,36 +1,60 @@
+function HangMan() {
+  this.array = ["apple"];
+  this.word = this.Random();
+  this.splitWord = this.brokenWord();
+  this.blank = this.Replace();
+  this.splitBlank = this.Blanks();
+  this.lettersGuessed = [];
+  this.score = 0;
+}
 
-  function hangMan() {
-    this.word = this.Random();
-    this.lettersGuessed = [];
-    this.score = 0;
-    this.discards = [];
-  }
-
-    hangMan.prototype.Random = function() {
-      var array = ["porpoise", "manatee", "manta ray", "steve irwin" ];
-      var word = array[Math.floor(Math.random() * array.length)];
-      return word;
+    HangMan.prototype.Random = function() {
+      // var array = ["porpoise", "manatee", "manta ray", "steve irwin" ];
+      this.word = this.array[Math.floor(Math.random() * this.array.length)];
+      return this.word;
     }
 
-    hangMan.prototype.Replace = function(word) {
-    var blankWord = word.replace(/\w/g, " _");
+    HangMan.prototype.Replace = function() {
+    var blankWord = this.word.replace(/\w/g, "_");
     return blankWord;
   }
 
-    hangMan.prototype.splitWord = function(word) {
-      var splitWord = word.split("");
-      return splitWord;
+    HangMan.prototype.brokenWord = function() {
+      this.splitWord = this.word.split("");
+      return this.splitWord;
     }
 
-    hangMan.prototype.splitBlank = function(blankWord) {
-    var splitBlank = blankWord.split("");
-    return splitBlank;
+    HangMan.prototype.Blanks = function(blankWord) {
+    this.splitBlank = this.blank.split("");
+    return this.splitBlank;
   }
 
-  hangMan.prototype.Index = function(guess) {
-    for (var i = 0; i < splitWord.length; i++) {
-      if (splitWord[i] === guess) {
-      return splitWord.charAt(i);
+  HangMan.prototype.findLetter = function(guess) { //cat
+  //a
+    for (var i = 0; i < this.splitWord.length; i++) {
+      if (this.splitWord[i] === guess) {
+        this.splitBlank[i] = guess;
+      }
+    }
+    return this.splitBlank;
+  }
+
+  HangMan.prototype.Guesses = function(guess) { //cat
+  //a
+    for (var i = 0; i < this.splitWord.length; i++) {
+      if (this.splitWord[i] !== guess) {
+        this.lettersGuessed.push(guess);
+      }
+        return this.lettersGuessed;
+    }
+  }
+    HangMan.prototype.addScore = function(guess) {
+
+      for (var i = 0; i < this.splitWord.length; i++) {
+        if (this.splitWord[i] !== guess) {
+          return this.score + 1;
+        }
+      }
     }
 
     //   if (index === -1) {
@@ -39,5 +63,3 @@
     // } else {
     // return index;
     // }
-    }
-  }
