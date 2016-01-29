@@ -15,36 +15,40 @@
       <div class="jumbotron">
         <h1>Play Hang Man, Man!</h1>
       </div>
-
-      <div id="stage">
-        <img src= "../img.stage.jpg">
+      <form id="newWord">
+        <br>
+        <input class="btn btn-info letters" type="submit" value="Let's Play!" id ="submit">
+      </form>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="stage">
+            <img src= "img/stage.jpg">
+          </div>
+          <div id="head">
+            <img src= "img/head.jpg">
+          </div>
+          <div id="body">
+            <img src= "img/headbody.jpg">
+          </div>
+          <div id="oneleg">
+            <img src= "img/headoneleg.jpg">
+          </div>
+          <div id="legs">
+            <img src= "img/headlegs.jpg">
+          </div>
+          <div id="leftarm">
+            <img src= "img/headleftarm.gif">
+          </div>
+          <div id="dead">
+            <img src= "img/dead.jpg">
       </div>
-      <div id="head">
-        <img src= "../img.head.jpg">
-      </div>
-      <div id="body">
-        <img src= "../img.headbody.jpg">
-      </div>
-      <div id="oneleg">
-        <img src= "../img.headoneleg.jpg">
-      </div>
-      <div id="legs">
-        <img src= "../img.headlegs.jpg">
-      </div>
-      <div id="leftarm">
-        <img src= "../img.headleftarm.jpg">
-      </div>
-      <div id="dead">
-        <img src= "../img.dead.jpg">
-      </div>
+    </div>
 
       <div id="wordplace">
-
       </div>
 
-      <div>
 
-
+        <div class="col-md-6">
           <button class="btn btn-info letters" type="button" value="a">a</button>
           <button class="btn btn-info letters" type="button" value="b">b</button>
           <button class="btn btn-info letters" type="button" value="c">c</button>
@@ -71,9 +75,8 @@
           <button class="btn btn-info letters" type="button" value="x">x</button>
           <button class="btn btn-info letters" type="button" value="y">y</button>
           <button class="btn btn-info letters" type="button" value="z">z</button>
+        </div>
       </div>
-      <form id="newWord">
-        <input class="btn btn-info letters" type="submit" value="Submit" id ="submit">
-      </form>
+    </div>
   </body>
 </html>

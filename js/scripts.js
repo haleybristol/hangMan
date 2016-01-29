@@ -15,7 +15,7 @@ function HangMan() {
     }
 
     HangMan.prototype.Replace = function() {
-    var blankWord = this.word.replace(/\w/g, "_");
+    var blankWord = this.word.replace(/\w/g, " _");
     return blankWord;
   }
 
@@ -58,8 +58,8 @@ function HangMan() {
     }
 
 $(document).ready (function(){
-
-  $("#wordplace").html($(this.word));
+  var hangman = new HangMan();
+  $("#wordplace").append(hangman.blank);
 
 
   $(".letters").click(function(event) {
